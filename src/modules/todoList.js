@@ -1,4 +1,4 @@
-import Task from "./task.js";
+import Task from './task.js';
 
 export default class TodoList {
   constructor(selector) {
@@ -13,9 +13,7 @@ export default class TodoList {
   }
 
   sortedTasks() {
-    return this.tasks.sort((a, b) => {
-      return a.index - b.index;
-    });
+    return this.tasks.sort((a, b) => a.index - b.index);
   }
 
   newIndex() {
@@ -23,7 +21,7 @@ export default class TodoList {
       return 0;
     }
 
-    const lastIndex = Math.max(...this.tasks.map(task => task.index));
+    const lastIndex = Math.max(...this.tasks.map((task) => task.index));
     return lastIndex + 1;
   }
 
@@ -31,7 +29,6 @@ export default class TodoList {
     this.domList.innerHTML = '';
     this.sortedTasks().forEach((task) => {
       const domTask = task.draw();
-      
       this.domList.appendChild(domTask);
     });
   }

@@ -5,12 +5,12 @@ export default class Task {
     this.index = index;
   }
 
-  draw(){
+  draw() {
     const li = document.createElement('li');
     li.classList.add('box');
 
     const chk = document.createElement('input');
-    chk.setAttribute('type', 'checkbox'); 
+    chk.setAttribute('type', 'checkbox');
     chk.checked = this.completed;
 
     const span = document.createElement('span');
