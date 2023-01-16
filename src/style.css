@@ -13,7 +13,7 @@ main {
   padding: 0;
   height: 100%;
   font-family: 'Roboto', sans-serif;
-  color:rgb(76, 76, 76);
+  color: rgb(76, 76, 76);
 }
 
 body {
@@ -26,9 +26,9 @@ main {
   width: 100%;
   max-width: 550px;
   margin: 20px;
-  height: fit-content;
+  height: auto;
   max-height: calc(100% - 50px);
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
   border-radius: 2px;
 }
 
@@ -45,17 +45,13 @@ ul {
   padding: 0 20px;
   display: flex;
   align-items: center;
-  gap: 10px
+  gap: 10px;
 }
 
 .box svg {
   cursor: pointer;
   user-select: none;
   color: rgb(163, 163, 163);
-}
-
-.box svg:hover {
-  color: rgb(49, 49, 49);
 }
 
 .box input[type=text] {
@@ -71,8 +67,8 @@ ul {
   width: 100%;
 }
 
-li.box svg {
-  cursor: move;
+.box svg:hover {
+  color: rgb(49, 49, 49);
 }
 
 button.box {
