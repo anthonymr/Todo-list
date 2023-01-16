@@ -1,6 +1,6 @@
 import Task from "./task.js";
 
-export default class todoList {
+export default class TodoList {
   constructor(selector) {
     this.domList = document.querySelector(selector);
     this.tasks = [];
