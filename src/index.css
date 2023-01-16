@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital@0;1&display=swap');
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+html,
+body,
+main {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Roboto', sans-serif;
+  color:rgb(76, 76, 76);
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+main {
+  width: 100%;
+  max-width: 550px;
+  margin: 20px;
+  height: fit-content;
+  max-height: calc(100% - 50px);
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  border-radius: 2px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  overflow-y: auto;
+}
+
+.box {
+  border-bottom: 1px solid rgb(233, 233, 233);
+  line-height: 40px;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px
+}
+
+.box svg {
+  cursor: pointer;
+  user-select: none;
+  color: rgb(163, 163, 163);
+}
+
+.box svg:hover {
+  color: rgb(49, 49, 49);
+}
+
+.box input[type=text] {
+  border: none;
+  width: 100%;
+  line-height: 37px;
+  margin: 0;
+  font-style: italic;
+  outline: none;
+}
+
+.box span {
+  width: 100%;
+}
+
+li.box svg {
+  cursor: move;
+}
+
+button.box {
+  width: 100%;
+  border: none;
+  background-color: rgb(246, 246, 246);
+  color: rgb(163, 163, 163);
+  user-select: none;
+  cursor: pointer;
+  align-items: center;
+}
