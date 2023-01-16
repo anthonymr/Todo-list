@@ -1,5 +1,5 @@
 import TodoList from "./modules/todoList.js";
-import './index.css';
+import './style.css';
 import '@fortawesome/fontawesome-free/js/fontawesome'
 import '@fortawesome/fontawesome-free/js/solid'
 
