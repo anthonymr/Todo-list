@@ -11,13 +11,20 @@ export default class Form {
 
   static list;
 
-  static refreshTasksEvents(){
+  static refreshTasksEvents() {
     Form.list.tasks.forEach(task => {
-        task.domElement.classList.remove('editing');
-        task.editing = false;
-        task.domElement.addEventListener('click', Form.editEvent.bind(task));
-        task.domDeleteIcon.addEventListener('click', Form.removeEvent.bind(task));
+      task.domElement.classList.remove('editing');
+      task.editing = false;
+      task.domElement.addEventListener('click', Form.editEvent.bind(task));
+      task.domDeleteIcon.addEventListener('click', Form.removeEvent.bind(task));
     });
+  }
+
+  static addEvent(event) {
+    if (event.key === "Enter" || event.type == 'click') {
+      Form.list.addTask(this.addInput.value);
+      this.addInput.value = '';
+    }
   }
 
   static removeEvent() {
@@ -28,8 +35,8 @@ export default class Form {
   }
 
   static editEvent() {
-    if(this.editing) {
-        return;
+    if (this.editing) {
+      return;
     }
 
     this.domElement.classList.add('editing');
@@ -38,23 +45,16 @@ export default class Form {
     this.editing = true;
 
     this.domInput.addEventListener('keypress', (event) => {
-    if(event.key === 'Enter'){
-        if(this.domInput.value){
-            this.description = this.domInput.value
-            this.domSpan.innerHTML = this.description;
-            this.domInput.value = '';
+      if (event.key === 'Enter') {
+        if (this.domInput.value) {
+          this.description = this.domInput.value
+          this.domSpan.innerHTML = this.description;
+          this.domInput.value = '';
         }
 
         this.domElement.classList.remove('editing');
         this.editing = false;
-    }      
+      }
     })
-  }
-
-  static addEvent(event) {
-    if (event.key === "Enter" || event.type == 'click') {
-      Form.list.addTask(this.addInput.value);
-      this.addInput.value = '';
-    }
   }
 }
