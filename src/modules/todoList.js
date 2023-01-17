@@ -30,6 +30,17 @@ export default class TodoList {
     });
   }
 
+  editTask(task) {
+    if (task.domInput.value) {
+      task.description = task.domInput.value
+      task.domSpan.innerHTML = task.description;
+      task.domInput.value = '';
+    }
+
+    task.domElement.classList.remove('editing');
+    task.editing = false;
+  }
+
   sortedTasks() {
     return this.tasks.sort((a, b) => a.index - b.index);
   }

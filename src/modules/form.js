@@ -35,6 +35,7 @@ export default class Form {
   }
 
   static editEvent() {
+
     if (this.editing) {
       return;
     }
@@ -46,14 +47,7 @@ export default class Form {
 
     this.domInput.addEventListener('keypress', (event) => {
       if (event.key === 'Enter') {
-        if (this.domInput.value) {
-          this.description = this.domInput.value
-          this.domSpan.innerHTML = this.description;
-          this.domInput.value = '';
-        }
-
-        this.domElement.classList.remove('editing');
-        this.editing = false;
+        Form.list.editTask(this);
       }
     })
   }
