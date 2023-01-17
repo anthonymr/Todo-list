@@ -9,25 +9,31 @@ export default class Task {
   draw() {
     this.domElement = document.createElement('li');
     this.domElement.classList.add('box');
-    this.domElement.id = `task_${this.index}`;
 
-    this.domChk = document.createElement('input');
-    this.domChk.setAttribute('type', 'checkbox');
-    this.domChk.checked = this.completed;
+    this.domCheck = document.createElement('input');
+    this.domCheck.setAttribute('type', 'checkbox');
+    this.domCheck.checked = this.completed;
 
     this.domSpan = document.createElement('span');
+    this.domSpan.classList.add('description');
     this.domSpan.innerHTML = this.description;
 
     this.domInput = document.createElement('input');
     this.domInput.type = 'text';
 
-    this.domIcon = document.createElement('i');
-    this.domIcon.classList.add('fa-solid', 'fa-ellipsis-vertical');
+    this.domIcon = document.createElement('span');
+    this.domIcon.classList.add('icon', 'move-icon');
+    this.domIcon.innerHTML = '<i class="fa-solid fa-ellipsis-vertical">'
 
-    this.domElement.appendChild(this.domChk);
+    this.domDeleteIcon = document.createElement('span');
+    this.domDeleteIcon.classList.add('icon', 'delete-icon');
+    this.domDeleteIcon.innerHTML = '<i class="fa-regular fa-trash-can">'
+
+    this.domElement.appendChild(this.domCheck);
     this.domElement.appendChild(this.domSpan);
     this.domElement.appendChild(this.domInput);
     this.domElement.appendChild(this.domIcon);
+    this.domElement.appendChild(this.domDeleteIcon);
 
     return this.domElement;
   }

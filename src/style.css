@@ -48,7 +48,7 @@ ul {
   gap: 10px;
 }
 
-.box svg {
+.box .icon {
   cursor: pointer;
   user-select: none;
   color: rgb(163, 163, 163);
@@ -63,11 +63,11 @@ ul {
   outline: none;
 }
 
-.box span {
+.box > .description {
   width: 100%;
 }
 
-.box svg:hover {
+.box .icon:hover {
   color: rgb(49, 49, 49);
 }
 
@@ -85,8 +85,20 @@ li.box > input[type=text] {
   display: none;
 }
 
+li.box > .delete-icon {
+  display: none;
+}
+
 .editing > span {
   display: none;
+}
+
+.editing > .move-icon {
+  display: none;
+}
+
+.editing > .delete-icon {
+  display: block !important;
 }
 
 .editing {

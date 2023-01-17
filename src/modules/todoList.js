@@ -12,7 +12,7 @@ export default class TodoList {
     const newTask = new Task(description, completed, newIndex);
     this.tasks.push(newTask);
     this.drawTable();
-    Form.refreshEditEvents();
+    Form.refreshTasksEvents();
   }
 
   removeTask(indexToRemove){
@@ -24,7 +24,7 @@ export default class TodoList {
         found = true;
       }
 
-      if(found && indexToRemove < this.tasks.length){
+      if(found && indexToRemove <= this.tasks.length){
         this.tasks[index].index--;
       }
     });
