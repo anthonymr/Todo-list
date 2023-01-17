@@ -12,6 +12,22 @@ export default class TodoList {
     this.drawTable();
   }
 
+  removeTask(indexToRemove){
+
+    let found = false;
+
+    this.tasks.forEach((task, index) => {
+      if(task.index === indexToRemove){
+        this.tasks.splice(index, 1);
+        found = true;
+      }
+
+      if(found && indexToRemove < this.tasks.length){
+        this.tasks[index].index--;
+      }
+    });
+  }
+
   sortedTasks() {
     return this.tasks.sort((a, b) => a.index - b.index);
   }
