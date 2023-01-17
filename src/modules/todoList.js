@@ -17,17 +17,17 @@ export default class TodoList {
     LocalStorage.saveToLocalStorage(this.tasks);
   }
 
-  removeTask(indexToRemove){
+  removeTask(indexToRemove) {
     let found = false;
 
     this.tasks.forEach((task, index) => {
-      if(task.index === indexToRemove){
+      if (task.index === indexToRemove) {
         this.tasks.splice(index, 1);
         found = true;
       }
 
-      if(found && indexToRemove <= this.tasks.length){
-        this.tasks[index].index--;
+      if (found && indexToRemove <= this.tasks.length) {
+        this.tasks[index].index -= 1;
       }
     });
     LocalStorage.saveToLocalStorage(this.tasks);
@@ -35,7 +35,7 @@ export default class TodoList {
 
   editTask(task) {
     if (task.domInput.value) {
-      task.description = task.domInput.value
+      task.description = task.domInput.value;
       task.domSpan.innerHTML = task.description;
       task.domInput.value = '';
     }

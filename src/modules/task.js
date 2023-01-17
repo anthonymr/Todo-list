@@ -23,11 +23,11 @@ export default class Task {
 
     this.domIcon = document.createElement('span');
     this.domIcon.classList.add('icon', 'move-icon');
-    this.domIcon.innerHTML = '<i class="fa-solid fa-ellipsis-vertical">'
+    this.domIcon.innerHTML = '<i class="fa-solid fa-ellipsis-vertical">';
 
     this.domDeleteIcon = document.createElement('span');
     this.domDeleteIcon.classList.add('icon', 'delete-icon');
-    this.domDeleteIcon.innerHTML = '<i class="fa-regular fa-trash-can">'
+    this.domDeleteIcon.innerHTML = '<i class="fa-regular fa-trash-can">';
 
     this.domElement.appendChild(this.domCheck);
     this.domElement.appendChild(this.domSpan);

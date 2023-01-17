@@ -1,4 +1,4 @@
-import LocalStorage from "./localStorage.js";
+import LocalStorage from './localStorage.js';
 
 export default class Form {
   constructor(list, domElements) {
@@ -13,7 +13,7 @@ export default class Form {
     const storedTasks = LocalStorage.loadLocalStorage();
 
     storedTasks.forEach((task) => {
-        Form.list.addTask(task.description);
+      Form.list.addTask(task.description);
     });
 
     Form.refreshTasksEvents();
@@ -22,7 +22,7 @@ export default class Form {
   static list;
 
   static refreshTasksEvents() {
-    Form.list.tasks.forEach(task => {
+    Form.list.tasks.forEach((task) => {
       task.domElement.classList.remove('editing');
       task.editing = false;
       task.domElement.addEventListener('click', Form.editEvent.bind(task));
@@ -31,7 +31,7 @@ export default class Form {
   }
 
   static addEvent(event) {
-    if (event.key === "Enter" || event.type == 'click') {
+    if (event.key === 'Enter' || event.type === 'click') {
       Form.list.addTask(this.addInput.value);
       this.addInput.value = '';
     }
@@ -45,7 +45,6 @@ export default class Form {
   }
 
   static editEvent() {
-
     if (this.editing) {
       return;
     }
@@ -59,6 +58,6 @@ export default class Form {
       if (event.key === 'Enter') {
         Form.list.editTask(this);
       }
-    })
+    });
   }
 }
