@@ -15,6 +15,8 @@ export default class Form {
     storedTasks.forEach((task) => {
         Form.list.addTask(task.description);
     });
+
+    Form.refreshTasksEvents();
   }
 
   static list;
