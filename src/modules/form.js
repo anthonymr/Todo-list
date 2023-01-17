@@ -1,3 +1,5 @@
+import LocalStorage from "./localStorage.js";
+
 export default class Form {
   constructor(list, domElements) {
     Form.list = list;
@@ -7,6 +9,12 @@ export default class Form {
 
     this.addInput.addEventListener('keypress', Form.addEvent.bind(this));
     this.addIcon.addEventListener('click', Form.addEvent.bind(this));
+
+    const storedTasks = LocalStorage.loadLocalStorage();
+
+    storedTasks.forEach((task) => {
+        Form.list.addTask(task.description);
+    });
   }
 
   static list;

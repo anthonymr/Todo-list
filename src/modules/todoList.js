@@ -1,5 +1,6 @@
 import Task from './task.js';
 import Form from './form.js';
+import LocalStorage from './localStorage.js';
 
 export default class TodoList {
   constructor(selector) {
@@ -13,6 +14,7 @@ export default class TodoList {
     this.tasks.push(newTask);
     this.drawTable();
     Form.refreshTasksEvents();
+    LocalStorage.saveToLocalStorage(this.tasks);
   }
 
   removeTask(indexToRemove){
@@ -28,6 +30,7 @@ export default class TodoList {
         this.tasks[index].index--;
       }
     });
+    LocalStorage.saveToLocalStorage(this.tasks);
   }
 
   editTask(task) {
@@ -39,6 +42,7 @@ export default class TodoList {
 
     task.domElement.classList.remove('editing');
     task.editing = false;
+    LocalStorage.saveToLocalStorage(this.tasks);
   }
 
   sortedTasks() {
