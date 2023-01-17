@@ -15,6 +15,7 @@ export default class TodoList {
     this.drawTable();
     Form.refreshTasksEvents();
     LocalStorage.saveToLocalStorage(this.tasks);
+    console.log(this.tasks);
   }
 
   removeTask(indexToRemove) {
@@ -30,6 +31,7 @@ export default class TodoList {
         this.tasks[index].index -= 1;
       }
     });
+
     LocalStorage.saveToLocalStorage(this.tasks);
   }
 

@@ -16,7 +16,6 @@ export default class Form {
       Form.list.addTask(task.description);
     });
 
-    Form.refreshTasksEvents();
   }
 
   static list;
