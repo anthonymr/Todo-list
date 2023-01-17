@@ -6,10 +6,9 @@ import '@fortawesome/fontawesome-free/js/solid.js';
 
 window.onload = () => {
   const myList = new TodoList('ul');
-  
+
   const myForm = new Form(myList, {
     newTaskInput: 'new_task_input',
     newTaskIcon: 'new_task_icon',
-    listContainer: 'list_container',
   });
 };
