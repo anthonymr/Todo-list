@@ -3,26 +3,32 @@ export default class Task {
     this.description = description;
     this.completed = completed;
     this.index = index;
+    this.editing = false;
   }
 
   draw() {
-    const li = document.createElement('li');
-    li.classList.add('box');
+    this.domElement = document.createElement('li');
+    this.domElement.classList.add('box');
+    this.domElement.id = `task_${this.index}`;
 
-    const chk = document.createElement('input');
-    chk.setAttribute('type', 'checkbox');
-    chk.checked = this.completed;
+    this.domChk = document.createElement('input');
+    this.domChk.setAttribute('type', 'checkbox');
+    this.domChk.checked = this.completed;
 
-    const span = document.createElement('span');
-    span.innerHTML = this.description;
+    this.domSpan = document.createElement('span');
+    this.domSpan.innerHTML = this.description;
 
-    const icon = document.createElement('i');
-    icon.classList.add('fa-solid', 'fa-ellipsis-vertical');
+    this.domInput = document.createElement('input');
+    this.domInput.type = 'text';
 
-    li.appendChild(chk);
-    li.appendChild(span);
-    li.appendChild(icon);
+    this.domIcon = document.createElement('i');
+    this.domIcon.classList.add('fa-solid', 'fa-ellipsis-vertical');
 
-    return li;
+    this.domElement.appendChild(this.domChk);
+    this.domElement.appendChild(this.domSpan);
+    this.domElement.appendChild(this.domInput);
+    this.domElement.appendChild(this.domIcon);
+
+    return this.domElement;
   }
 }

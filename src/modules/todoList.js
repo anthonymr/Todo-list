@@ -1,4 +1,5 @@
 import Task from './task.js';
+import Form from './form.js';
 
 export default class TodoList {
   constructor(selector) {
@@ -11,6 +12,7 @@ export default class TodoList {
     const newTask = new Task(description, completed, newIndex);
     this.tasks.push(newTask);
     this.drawTable();
+    Form.refreshEditEvents();
   }
 
   removeTask(indexToRemove){
