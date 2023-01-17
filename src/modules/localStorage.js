@@ -12,7 +12,7 @@ export default class LocalStorage {
         return parsedTaskList;
       }
     }
-    
+
     return [];
   }
 }
