@@ -1,12 +1,18 @@
 import TodoList from './modules/todoList.js';
+import Form from './modules/form.js';
 import './style.css';
 import '@fortawesome/fontawesome-free/js/fontawesome.js';
 import '@fortawesome/fontawesome-free/js/solid.js';
 
 window.onload = () => {
   const myList = new TodoList('ul');
+  const myForm = new Form(myList, {
+    newTaskInput: 'new_task_input',
+    newTaskIcon: 'new_task_icon',
+  });
 
-  myList.addTask('0');
+
+  /*myList.addTask('0');
   myList.addTask('1');
   myList.addTask('2');
   myList.addTask('3');
@@ -21,5 +27,6 @@ window.onload = () => {
   myList.removeTask(0);
   myList.removeTask(2);
 
-  console.log(myList.sortedTasks());
+  myList.addTask('9');
+  myList.addTask('10');*/
 };
