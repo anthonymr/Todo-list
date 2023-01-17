@@ -16,5 +16,10 @@ window.onload = () => {
   myList.addTask('7');
   myList.addTask('8');
 
+  myList.removeTask(3);
+  myList.removeTask(1);
+  myList.removeTask(0);
+  myList.removeTask(2);
+
   console.log(myList.sortedTasks());
 };

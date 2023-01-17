@@ -7,13 +7,13 @@ export default class TodoList {
   }
 
   addTask(description, completed = false) {
-    const newTask = new Task(description, completed, this.newIndex());
+    const newIndex = this.tasks.length + 1;
+    const newTask = new Task(description, completed, newIndex);
     this.tasks.push(newTask);
     this.drawTable();
   }
 
   removeTask(indexToRemove){
-
     let found = false;
 
     this.tasks.forEach((task, index) => {
@@ -30,15 +30,6 @@ export default class TodoList {
 
   sortedTasks() {
     return this.tasks.sort((a, b) => a.index - b.index);
-  }
-
-  newIndex() {
-    if (!this.tasks.length) {
-      return 0;
-    }
-
-    const lastIndex = Math.max(...this.tasks.map((task) => task.index));
-    return lastIndex + 1;
   }
 
   drawTable() {
