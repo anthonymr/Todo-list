@@ -46,9 +46,9 @@ export default class Form {
   }
 
   static toggleCompleted(event) {
-    if(event.currentTarget.checked){
+    if (event.currentTarget.checked) {
       Form.list.completeTask(this);
-    }else{
+    } else {
       Form.list.uncompleteTask(this);
     }
   }

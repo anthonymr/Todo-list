@@ -36,14 +36,14 @@ export default class TodoList {
     LocalStorage.saveToLocalStorage(this.tasks);
   }
 
-  completeTask(task){
+  completeTask(task) {
     task.completed = true;
     this.drawTable();
     Form.refreshTasksEvents();
     LocalStorage.saveToLocalStorage(this.tasks);
   }
 
-  uncompleteTask(task){
+  uncompleteTask(task) {
     task.completed = false;
     this.drawTable();
     Form.refreshTasksEvents();
@@ -61,10 +61,10 @@ export default class TodoList {
     LocalStorage.saveToLocalStorage(this.tasks);
   }
 
-  resetIndex(){
+  resetIndex() {
     this.tasks.forEach((task, index) => {
       task.index = index + 1;
-    })
+    });
   }
 
   sortedTasks() {

@@ -18,7 +18,7 @@ export default class Task {
     this.domSpan.classList.add('description');
     this.domSpan.innerHTML = this.description;
 
-    if(this.completed) {
+    if (this.completed) {
       this.domSpan.classList.add('completed');
     }
 
