@@ -18,18 +18,8 @@ export default class TodoList {
   }
 
   removeTask(indexToRemove) {
-    let found = false;
-
-    this.tasks.forEach((task, index) => {
-      if (task.index === indexToRemove) {
-        this.tasks.splice(index, 1);
-        found = true;
-      }
-
-      if (found && indexToRemove <= this.tasks.length) {
-        this.tasks[index].index -= 1;
-      }
-    });
+    this.tasks.splice(indexToRemove - 1, 1);
+    this.resetIndex();
 
     LocalStorage.saveToLocalStorage(this.tasks);
   }
@@ -44,6 +34,35 @@ export default class TodoList {
     task.domElement.classList.remove('editing');
     task.editing = false;
     LocalStorage.saveToLocalStorage(this.tasks);
+  }
+
+  completeTask(task){
+    task.completed = true;
+    this.drawTable();
+    Form.refreshTasksEvents();
+  }
+
+  uncompleteTask(task){
+    task.completed = false;
+    this.drawTable();
+    Form.refreshTasksEvents();
+  }
+
+  clearAllCompleted() {
+    this.tasks = this.tasks.filter((task) => !task.completed);
+
+    this.resetIndex();
+
+    this.drawTable();
+
+    Form.refreshTasksEvents();
+    LocalStorage.saveToLocalStorage(this.tasks);
+  }
+
+  resetIndex(){
+    this.tasks.forEach((task, index) => {
+      task.index = index + 1;
+    })
   }
 
   sortedTasks() {
