@@ -56,7 +56,6 @@ export default class TodoList {
     this.resetIndex();
 
     this.drawTable();
-
     Form.refreshTasksEvents();
     LocalStorage.saveToLocalStorage(this.tasks);
   }
@@ -77,5 +76,18 @@ export default class TodoList {
       const domTask = task.draw();
       this.domList.appendChild(domTask);
     });
+  }
+
+  switchIndexes(index1, index2) {
+    const from = parseInt(index1, 10) - 1;
+    const to = parseInt(index2, 10) - 1;
+
+    const element = this.tasks.splice(from, 1)[0];
+    this.tasks.splice(to, 0, element);
+    this.resetIndex();
+
+    this.drawTable();
+    Form.refreshTasksEvents();
+    LocalStorage.saveToLocalStorage(this.tasks);
   }
 }

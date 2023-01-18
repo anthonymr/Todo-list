@@ -52,6 +52,13 @@ ul {
   cursor: pointer;
   user-select: none;
   color: rgb(163, 163, 163);
+  width: 20px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.box .icon.move-icon {
+  cursor: move;
 }
 
 .box input[type=text] {

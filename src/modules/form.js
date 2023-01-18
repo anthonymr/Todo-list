@@ -25,6 +25,11 @@ export default class Form {
     Form.list.tasks.forEach((task) => {
       task.domElement.classList.remove('editing');
       task.editing = false;
+
+      task.domElement.addEventListener('dragstart', Form.dragTask.bind(task));
+      task.domElement.addEventListener('drop', Form.dropTask.bind(task));
+      task.domElement.addEventListener('dragover', Form.allowDropTask.bind(task));
+
       task.domElement.addEventListener('click', Form.editEvent.bind(task));
       task.domDeleteIcon.addEventListener('click', Form.removeEvent.bind(task));
       task.domCheck.addEventListener('change', Form.toggleCompleted.bind(task));
@@ -68,5 +73,20 @@ export default class Form {
         Form.list.editTask(this);
       }
     });
+  }
+
+  static dragTask(e) {
+    e.dataTransfer.setData('id', e.target.id);
+  }
+
+  static allowDropTask(e) {
+    e.preventDefault();
+  }
+
+  static dropTask(e) {
+    e.preventDefault();
+    const origin = e.dataTransfer.getData('id');
+    const target = e.target.parentElement.id;
+    Form.list.switchIndexes(origin, target);
   }
 }
