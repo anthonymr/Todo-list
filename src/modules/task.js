@@ -18,6 +18,10 @@ export default class Task {
     this.domSpan.classList.add('description');
     this.domSpan.innerHTML = this.description;
 
+    if (this.completed) {
+      this.domSpan.classList.add('completed');
+    }
+
     this.domInput = document.createElement('input');
     this.domInput.type = 'text';
 

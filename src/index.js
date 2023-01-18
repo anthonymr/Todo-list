@@ -12,5 +12,6 @@ window.onload = () => {
   const myForm = new Form(myList, {
     newTaskInput: 'new_task_input',
     newTaskIcon: 'new_task_icon',
+    clearAllCompletedTasks: 'clear_all_completed_tasks',
   });
 };
