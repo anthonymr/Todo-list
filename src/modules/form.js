@@ -6,9 +6,11 @@ export default class Form {
 
     this.addInput = document.querySelector(`#${domElements.newTaskInput}`);
     this.addIcon = document.querySelector(`#${domElements.newTaskIcon}`);
+    this.clearButton = document.querySelector(`#${domElements.clearAllCompletedTasks}`);
 
     this.addInput.addEventListener('keypress', Form.addEvent.bind(this));
     this.addIcon.addEventListener('click', Form.addEvent.bind(this));
+    this.clearButton.addEventListener('click', list.clearAllCompleted.bind(list));
 
     const storedTasks = LocalStorage.loadLocalStorage();
 
@@ -25,6 +27,7 @@ export default class Form {
       task.editing = false;
       task.domElement.addEventListener('click', Form.editEvent.bind(task));
       task.domDeleteIcon.addEventListener('click', Form.removeEvent.bind(task));
+      task.domCheck.addEventListener('change', Form.toggleCompleted.bind(task));
     });
   }
 
@@ -40,6 +43,14 @@ export default class Form {
     Form.list.removeTask(this.index);
     Form.list.drawTable();
     Form.refreshTasksEvents();
+  }
+
+  static toggleCompleted(event) {
+    if(event.currentTarget.checked){
+      Form.list.completeTask(this);
+    }else{
+      Form.list.uncompleteTask(this);
+    }
   }
 
   static editEvent() {
