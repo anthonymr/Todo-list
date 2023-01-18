@@ -113,3 +113,8 @@ li.box > .delete-icon {
 li.box > input[type=text] {
   display: none;
 }
+
+.completed {
+  color: rgb(163, 163, 163);
+  text-decoration: line-through;
+}
