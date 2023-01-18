@@ -15,7 +15,7 @@ export default class Form {
     const storedTasks = LocalStorage.loadLocalStorage();
 
     storedTasks.forEach((task) => {
-      Form.list.addTask(task.description);
+      Form.list.addTask(task.description, task.completed);
     });
   }
 

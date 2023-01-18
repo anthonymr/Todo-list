@@ -40,12 +40,14 @@ export default class TodoList {
     task.completed = true;
     this.drawTable();
     Form.refreshTasksEvents();
+    LocalStorage.saveToLocalStorage(this.tasks);
   }
 
   uncompleteTask(task){
     task.completed = false;
     this.drawTable();
     Form.refreshTasksEvents();
+    LocalStorage.saveToLocalStorage(this.tasks);
   }
 
   clearAllCompleted() {
