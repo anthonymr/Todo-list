@@ -78,9 +78,9 @@ export default class TodoList {
     });
   }
 
-  switchIndexes(index1, index2){
-    const from = parseInt(index1) - 1;
-    const to = parseInt(index2) - 1;
+  switchIndexes(index1, index2) {
+    const from = parseInt(index1, 10) - 1;
+    const to = parseInt(index2, 10) - 1;
 
     const element = this.tasks.splice(from, 1)[0];
     this.tasks.splice(to, 0, element);
