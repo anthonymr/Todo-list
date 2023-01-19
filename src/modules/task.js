@@ -10,7 +10,6 @@ export default class Task {
     this.domElement = document.createElement('li');
     this.domElement.classList.add('box');
     this.domElement.setAttribute('draggable', 'true');
-    this.domElement.id = this.index;
 
     this.domCheck = document.createElement('input');
     this.domCheck.setAttribute('type', 'checkbox');

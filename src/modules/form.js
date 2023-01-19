@@ -76,7 +76,7 @@ export default class Form {
   }
 
   static dragTask(e) {
-    e.dataTransfer.setData('id', e.target.id);
+    e.dataTransfer.setData('index', this.index);
   }
 
   static allowDropTask(e) {
@@ -85,8 +85,9 @@ export default class Form {
 
   static dropTask(e) {
     e.preventDefault();
-    const origin = e.dataTransfer.getData('id');
-    const target = e.target.parentElement.id;
+
+    const origin = e.dataTransfer.getData('index');
+    const target = this.index;
     Form.list.switchIndexes(origin, target);
   }
 }
