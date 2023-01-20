@@ -48,7 +48,7 @@
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Coming soon](https://github.com/anthonymr/)
+- [Live Demo](https://anthonymr.github.io/Todo-list/dist/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -103,7 +103,6 @@ You can deploy this project using: GitHub but if you want to deploy make sure yo
 ## 🔭 Future Features <a name="future-features"></a>
 
 - [ ] **Upgraded style**
-- [ ] **Live demo**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
