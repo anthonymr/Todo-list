@@ -66,13 +66,9 @@ export default class TodoList {
     });
   }
 
-  sortedTasks() {
-    return this.tasks.sort((a, b) => a.index - b.index);
-  }
-
   drawTable() {
     this.domList.innerHTML = '';
-    this.sortedTasks().forEach((task) => {
+    this.tasks.forEach((task) => {
       const domTask = task.draw();
       this.domList.appendChild(domTask);
     });
