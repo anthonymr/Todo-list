@@ -36,7 +36,7 @@ describe('Testing To Do list: part 1', () => {
   test('Remove one item to the list', () => {
     myList.removeTask(1);
     myList.drawTable();
-  
+
     const list = document.querySelectorAll('#test-list li');
     expect(list).toHaveLength(0);
   });
