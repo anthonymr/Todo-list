@@ -1,11 +1,10 @@
 /**
  * @jest-environment jsdom
  */
-import TodoList from "../modules/todoList";
-import Form from "../modules/form";
+import TodoList from '../modules/todoList.js';
+import Form from '../modules/form.js';
 
-document.body.innerHTML =
-  `
+document.body.innerHTML = `
     <div> 
         <ul id="test-list"></ul> 
     </div>
@@ -20,7 +19,7 @@ document.body.innerHTML =
 
 const myList = new TodoList('#test-list');
 
-const myForm = new Form(myList, {
+new Form(myList, {
   newTaskInput: 'new_task_input',
   newTaskIcon: 'new_task_icon',
   clearAllCompletedTasks: 'clear_all_completed_tasks',
