@@ -25,10 +25,19 @@ const myForm = new Form(myList, {
   newTaskIcon: 'new_task_icon',
   clearAllCompletedTasks: 'clear_all_completed_tasks',
 });
+
 describe('Testing To Do list: part 1', () => {
   test('Add one new item to the list', () => {
     myList.addTask('Test description');
     const list = document.querySelectorAll('#test-list li');
     expect(list).toHaveLength(1);
+  });
+
+  test('Remove one item to the list', () => {
+    myList.removeTask(1);
+    myList.drawTable();
+  
+    const list = document.querySelectorAll('#test-list li');
+    expect(list).toHaveLength(0);
   });
 });
