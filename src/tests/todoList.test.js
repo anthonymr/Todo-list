@@ -1,6 +1,7 @@
 /**
  * @jest-environment jsdom
  */
+/* eslint-disable no-unused-vars */
 import TodoList from '../modules/todoList.js';
 import Form from '../modules/form.js';
 
@@ -19,7 +20,7 @@ document.body.innerHTML = `
 
 const myList = new TodoList('#test-list');
 
-new Form(myList, {
+const myForm = new Form(myList, {
   newTaskInput: 'new_task_input',
   newTaskIcon: 'new_task_icon',
   clearAllCompletedTasks: 'clear_all_completed_tasks',
