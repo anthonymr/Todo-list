@@ -45,23 +45,82 @@ describe('Testing To Do list: part 1', () => {
 describe('Testing To Do list: part 2', () => {
   test('Edit one item to the list', () => {
     myList.addTask('Test description');
-  
     myList.tasks[0].domInput.value = 'New value';
-  
     myList.editTask(myList.tasks[0]);
-  
+
     expect(myList.tasks[0].description).toBe('New value');
   });
-    test('Complete one item in the list', () => {
+  test('Complete one item in the list', () => {
     myList.completeTask(myList.tasks[0]);
-  
+
     expect(myList.tasks[0].completed).toBe(true);
   });
-  
+
   test('Clear all completed item to the list', () => {
     myList.clearAllCompleted();
-  
+
     const list = document.querySelectorAll('#test-list li');
     expect(list).toHaveLength(0);
   });
-})
+});
+
+describe('Optional requirements', () => {
+  test('Uncomplete one item in the list', () => {
+    myList.addTask('Test description', true);
+
+    myList.uncompleteTask(myList.tasks[0]);
+
+    expect(myList.tasks[0].completed).toBe(false);
+  });
+
+  test('Switching item indexes in the list', () => {
+    myList.addTask('Test description 2', true);
+    myList.addTask('Test description 3', true);
+
+    myList.switchIndexes(1, 4);
+
+    expect(myList.tasks[0].description).toBe('Test description 2');
+    expect(myList.tasks[2].description).toBe('Test description');
+  });
+
+  test('Edit item with empty string', () => {
+    myList.tasks[0].domInput.value = '';
+
+    myList.editTask(myList.tasks[0]);
+
+    expect(myList.tasks[0].description).toBe('Test description 2');
+  });
+
+  test('Load items from local storage', () => {
+    const myNewList = new TodoList('#test-list');
+
+    myNewList.tasks = [];
+
+    const myNewForm = new Form(myNewList, {
+      newTaskInput: 'new_task_input',
+      newTaskIcon: 'new_task_icon',
+      clearAllCompletedTasks: 'clear_all_completed_tasks',
+    });
+
+    expect(myNewList.tasks).toHaveLength(3);
+  });
+
+  test('Load items from empty local storage', () => {
+    myList.removeTask(1);
+    myList.removeTask(1);
+    myList.removeTask(1);
+    myList.drawTable();
+
+    const myNewList = new TodoList('#test-list');
+
+    myNewList.tasks = [];
+
+    const myNewForm = new Form(myNewList, {
+      newTaskInput: 'new_task_input',
+      newTaskIcon: 'new_task_icon',
+      clearAllCompletedTasks: 'clear_all_completed_tasks',
+    });
+
+    expect(myNewList.tasks).toHaveLength(0);
+  });
+});
