@@ -1,8 +1,9 @@
 /**
  * @jest-environment jsdom
  */
-import TodoList from "../modules/todoList.js";
-import Form from "../modules/form.js";
+/* eslint-disable no-unused-vars */
+import TodoList from '../modules/todoList.js';
+import Form from '../modules/form.js';
 
 document.body.innerHTML = `
     <div> 
@@ -32,9 +33,9 @@ let testEventOutput = 0;
 const testEvent = {
   dataTransfer: {
     setData: (key, value) => testEventStorage.set(key, value),
-    getData: (key) => testEventStorage.get(key)
+    getData: (key) => testEventStorage.get(key),
   },
-  preventDefault: () => testEventOutput = 1,
+  preventDefault: () => { testEventOutput = 1 },
 };
 
 describe('Optional requirements', () => {
