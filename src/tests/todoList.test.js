@@ -52,4 +52,16 @@ describe('Testing To Do list: part 2', () => {
   
     expect(myList.tasks[0].description).toBe('New value');
   });
+    test('Complete one item in the list', () => {
+    myList.completeTask(myList.tasks[0]);
+  
+    expect(myList.tasks[0].completed).toBe(true);
+  });
+  
+  test('Clear all completed item to the list', () => {
+    myList.clearAllCompleted();
+  
+    const list = document.querySelectorAll('#test-list li');
+    expect(list).toHaveLength(0);
+  });
 })
