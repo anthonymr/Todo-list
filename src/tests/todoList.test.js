@@ -41,3 +41,15 @@ describe('Testing To Do list: part 1', () => {
     expect(list).toHaveLength(0);
   });
 });
+
+describe('Testing To Do list: part 2', () => {
+  test('Edit one item to the list', () => {
+    myList.addTask('Test description');
+  
+    myList.tasks[0].domInput.value = 'New value';
+  
+    myList.editTask(myList.tasks[0]);
+  
+    expect(myList.tasks[0].description).toBe('New value');
+  });
+})
