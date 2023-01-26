@@ -35,7 +35,7 @@ const testEvent = {
     setData: (key, value) => testEventStorage.set(key, value),
     getData: (key) => testEventStorage.get(key),
   },
-  preventDefault: () => { testEventOutput = 1 },
+  preventDefault: () => { testEventOutput = 1; },
 };
 
 describe('Optional requirements', () => {
