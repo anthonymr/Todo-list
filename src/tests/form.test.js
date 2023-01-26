@@ -1,11 +1,10 @@
 /**
  * @jest-environment jsdom
  */
-import TodoList from "../modules/todoList";
-import Form from "../modules/form";
+import TodoList from "../modules/todoList.js";
+import Form from "../modules/form.js";
 
-document.body.innerHTML =
-  `
+document.body.innerHTML = `
     <div> 
         <ul id="test-list"></ul> 
     </div>
@@ -35,12 +34,12 @@ const testEvent = {
     setData: (key, value) => testEventStorage.set(key, value),
     getData: (key) => testEventStorage.get(key)
   },
-  preventDefault: () => testEventOutput = 1
+  preventDefault: () => testEventOutput = 1,
 };
 
 describe('Optional requirements', () => {
   test('Add event must create new task', () => {
-    const event = { key: 'Enter', type: 'click' }
+    const event = { key: 'Enter', type: 'click' };
 
     Form.addInput = { value: 'just a test' };
     Form.addEvent(event);
@@ -56,7 +55,7 @@ describe('Optional requirements', () => {
   });
 
   test('toggleCompleted event must change task complete status', () => {
-    const event = { key: 'Enter', type: 'click' }
+    const event = { key: 'Enter', type: 'click' };
 
     Form.addInput = { value: 'just a test' };
     Form.addEvent(event);
@@ -65,13 +64,13 @@ describe('Optional requirements', () => {
 
     Form.list.tasks[0].completed = true;
 
-    Form.toggleCompleted(toggleEvent)
+    Form.toggleCompleted(toggleEvent);
 
     expect(Form.list.tasks[0].domCheck.checked).toBe(true);
   });
 
   test('toggleCompleted event must change task complete status', () => {
-    const event = { key: 'Enter', type: 'click' }
+    const event = { key: 'Enter', type: 'click' };
 
     Form.addInput = { value: 'just a test 2' };
     Form.addEvent(event);
@@ -80,7 +79,7 @@ describe('Optional requirements', () => {
 
     Form.list.tasks[0].completed = false;
 
-    Form.toggleCompleted(toggleEvent)
+    Form.toggleCompleted(toggleEvent);
 
     expect(Form.list.tasks[0].domCheck.checked).toBe(false);
   });
@@ -109,11 +108,10 @@ describe('Optional requirements', () => {
     Form.dragTask(testEvent);
 
     expect(testEvent.dataTransfer.getData('index')).toBe(1);
-
   });
 
   test('allowDropTask must prevent Default behavior', () => {
-    Form.allowDropTask(testEvent)
+    Form.allowDropTask(testEvent);
     expect(testEventOutput).toBe(1);
   });
 
@@ -133,7 +131,7 @@ describe('Optional requirements', () => {
     Form.editEvent();
 
     expect(Form.list.tasks[0].domElement.classList.contains('editing')).toBe(true);
-    Form.list.tasks[0].domInput.dispatchEvent(new KeyboardEvent('keypress', { 'key': 'Enter' } ));
+    Form.list.tasks[0].domInput.dispatchEvent(new KeyboardEvent('keypress', { key: 'Enter' }));
     expect(Form.list.tasks[0].domElement.classList.contains('editing')).toBe(false);
   });
 });
